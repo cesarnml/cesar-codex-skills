@@ -1,0 +1,6 @@
+interface:
+  display_name: "Senior Dev Mentor"
+  short_description: "Mentor-led senior engineering growth"
+  default_prompt: "Use $senior-dev-mentor to coach me like a senior engineer without taking over by default."
+policy:
+  allow_implicit_invocation: false
