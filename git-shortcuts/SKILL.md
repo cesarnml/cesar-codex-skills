@@ -37,6 +37,7 @@ Read repo/local `AGENTS.md` first if present. Repo/local policy overrides this s
 - If the current worktree lacks enough context, use the primary `main` worktree as fallback context.
 - If repo policy defines PR title format or ticket suffix rules, follow it.
 - Omit a `Verification` section by default.
+- Do not include `Validation` or `Verification` for routine repo checks like `test`, `typecheck`, or `lint`.
 - Include validation details only when they are materially informative: non-standard checks, manual QA, meaningful caveats, partial coverage, or when the user explicitly asks for them.
 
 ### `branch`
