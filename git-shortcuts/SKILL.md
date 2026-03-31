@@ -37,8 +37,12 @@ Read repo/local `AGENTS.md` first if present. Repo/local policy overrides this s
 - If the current worktree lacks enough context, use the primary `main` worktree as fallback context.
 - If repo policy defines PR title format or ticket suffix rules, follow it.
 - Omit a `Verification` section by default.
+- Do not write a `Verification`, `Validation`, `Checks`, or similar section when the only content would be routine repo checks or expected green-path commands.
 - Do not include `Validation` or `Verification` for routine repo checks like `test`, `typecheck`, or `lint`.
-- Include validation details only when they are materially informative: non-standard checks, manual QA, meaningful caveats, partial coverage, or when the user explicitly asks for them.
+- Do not include placeholder lines such as `- bun run ci`, `- tests pass`, or `- lint/typecheck` unless the user explicitly asked for that reporting or those details are the main risk-relevant signal.
+- Include validation details only when they are materially informative: non-standard checks, manual QA, meaningful caveats, partial coverage, failed or flaky checks, or when the user explicitly asks for them.
+- If validation is worth mentioning, fold it into the most relevant section unless a dedicated section is clearly justified.
+- Prefer no validation section over a low-value one.
 
 ### `branch`
 
