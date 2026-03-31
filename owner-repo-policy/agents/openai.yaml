@@ -1,7 +1,7 @@
 interface:
   display_name: "Owner Repo Policy"
-  short_description: "Apply owner-friendly GitHub repo policy"
-  default_prompt: "Use $owner-repo-policy to configure this repo with my preferred owner-operated GitHub workflow."
+  short_description: "Use for requests like 'setup my repo conventions' or 'apply my github preferences'"
+  default_prompt: "Use $owner-repo-policy when I say 'setup my repo conventions', 'setup my github repo', or 'apply my github preferences' to configure this repo with my preferred owner-operated GitHub workflow."
 
 policy:
   allow_implicit_invocation: true

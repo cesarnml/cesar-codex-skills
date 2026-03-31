@@ -1,11 +1,13 @@
 ---
 name: owner-repo-policy
-description: Use when the user wants to set up or discuss GitHub repo merge and branch-protection policy for a repo they personally own. Prefer squash-only PR merges, linear history on main, and no mandatory PR-review gate unless the user explicitly wants stricter team-style controls.
+description: Use when the user says things like "setup my repo conventions", "setup my github repo", or "apply my github preferences" and wants GitHub repo merge and branch-protection policy set for a repo they personally own. Prefer squash-only PR merges, linear history on main, and no mandatory PR-review gate unless the user explicitly wants stricter team-style controls.
 ---
 
 # Owner Repo Policy
 
 Use this skill when the repo is primarily operated by its owner and the user wants their preferred GitHub workflow applied or debated.
+
+Natural trigger phrases include "setup my repo conventions", "setup my github repo", and "apply my github preferences".
 
 ## Default stance
 
