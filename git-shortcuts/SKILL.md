@@ -43,6 +43,8 @@ Read repo/local `AGENTS.md` first if present. Repo/local policy overrides this s
 - Include validation details only when they are materially informative: non-standard checks, manual QA, meaningful caveats, partial coverage, failed or flaky checks, or when the user explicitly asks for them.
 - If validation is worth mentioning, fold it into the most relevant section unless a dedicated section is clearly justified.
 - Prefer no validation section over a low-value one.
+- When summarizing multiple distinct updates or follow-up items in a PR body, prefer flat bullet lists over one long comma-separated sentence.
+- In sections like `AI Review Follow-Up`, break distinct later changes into separate bullets instead of packing them into a single catch-all line.
 
 ### `branch`
 
