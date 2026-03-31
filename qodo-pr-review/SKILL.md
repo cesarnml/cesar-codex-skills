@@ -19,6 +19,12 @@ Use this skill when the user wants the latest `qodo-code-review` PR comments, in
    They are never gospel and should not be implemented blindly.
 5. Apply the repo's `ai-cr` policy explicitly.
    Push back on stale, over-scoped, unnecessary, or policy-conflicting suggestions.
+6. If the user explicitly approves your Qodo triage and asks you to make the patch, do the patch immediately instead of waiting for another confirmation.
+7. After applying an approved Qodo patch:
+   - run the smallest relevant verification
+   - commit the patch changes in the current repo
+   - push the current branch so the PR updates automatically
+8. If you update this skill itself, commit and push the skill repo as part of the same request.
 
 ## Output expectations
 
@@ -29,6 +35,7 @@ Use this skill when the user wants the latest `qodo-code-review` PR comments, in
 - Include file and line when available.
 - Call out stale or already-addressed comments explicitly instead of blindly implementing them.
 - When recommending no change, say why the comment should be rejected.
+- When the user has already approved your take, default to implementing the approved actionable items and pushing the branch update rather than asking again.
 
 ## Notes
 
