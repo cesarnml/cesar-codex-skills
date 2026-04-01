@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pre-Push Verify"
+  short_description: "Run repo checks before pushing"
+  default_prompt: "Use $pre-push-verify to run the repo verification gate before pushing and fix routine failures locally first."

@@ -1,16 +1,11 @@
 ---
 name: bun-worktree-guard
-description: Use when working in a Bun-based repo and there is a risk of avoidable workflow failures from a fresh worktree or a pre-push verification gate. Trigger when a new worktree may be missing installed dependencies, before pushing to GitHub, or when a push failed because format, lint, typecheck, or spellcheck did not run locally first.
+description: Use when entering a fresh or obviously unbootstrapped Bun-based worktree. Trigger when `node_modules` may be missing, dependencies may not be installed yet, or a newly created worktree needs the normal Bun bootstrap before deeper work starts.
 ---
 
 # Bun Worktree Guard
 
-Use this skill to prevent routine Bun workflow failures before they interrupt the main task.
-
-It covers two cases:
-
-- fresh worktree bootstrap
-- pre-push verification
+Use this skill to clear the common "fresh worktree is missing dependencies" failure mode before it interrupts the main task.
 
 ## Workflow
 
@@ -21,9 +16,9 @@ Treat the repo as Bun-based when:
 - `package.json` exists
 - `bun.lock` exists, or the repo clearly uses Bun scripts and tooling
 
-### 2. Fresh worktree bootstrap
+### 2. Check whether the worktree is bootstrapped
 
-Use this when entering a newly created or obviously unbootstrapped worktree.
+Use this skill when the worktree is new, ephemeral, or obviously missing installed dependencies.
 
 Default action:
 
@@ -31,38 +26,22 @@ Default action:
 
 Do not reinstall blindly if dependencies are already present unless there is evidence they are stale or broken.
 
-If the repo exposes a setup command that is clearly part of normal local bootstrap, run it when appropriate. Example: `bun run hooks:install`.
+### 3. Run normal local bootstrap extras when appropriate
 
-### 3. Pre-push guard
+If the repo exposes a setup command that is clearly part of normal local bootstrap, run it when appropriate.
 
-Before any `git push`, look for the repo's main verification script in `package.json`.
+Example:
 
-Preferred order:
-
-1. if `bun run verify` exists, run `bun run verify`
-2. otherwise run the narrowest meaningful pre-push checks exposed by the repo
-3. fix failures locally before retrying the push
-
-Do not wait for the push hook to discover routine format, lint, typecheck, or spellcheck failures.
-
-### 4. Failure handling
-
-When bootstrap or verify fails:
-
-- treat it as a workflow blocker to clear immediately
-- prefer fixing the underlying issue over bypassing the check
-- summarize the blocker briefly for the user only when it changes the plan or requires a decision
+- `bun run hooks:install`
 
 ## Guardrails
 
 - This skill is personal workflow guidance, not repo policy.
 - Do not edit repo docs or repo instructions just to enforce this behavior.
-- Prefer proactive checks over reactive push-hook failures.
-- Keep the overhead low; the point is to remove common friction, not to run unnecessary setup constantly.
+- Keep the overhead low; the point is to remove a common setup blocker, not to run setup constantly.
 
 ## Example triggers
 
 - "bootstrap this fresh Bun worktree"
-- "make sure this push won't fail the hook"
 - "install deps if needed before we start"
-- "run the repo checks before pushing"
+- "this new worktree probably needs bun install"

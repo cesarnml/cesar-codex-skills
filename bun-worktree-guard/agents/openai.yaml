@@ -1,4 +1,4 @@
 interface:
   display_name: "Bun Worktree Guard"
-  short_description: "Bootstrap Bun worktrees and pre-push checks"
-  default_prompt: "Use $bun-worktree-guard to bootstrap this fresh Bun worktree and make sure a push will not fail verification."
+  short_description: "Bootstrap fresh Bun worktrees"
+  default_prompt: "Use $bun-worktree-guard to bootstrap this fresh Bun worktree before deeper repo work starts."
